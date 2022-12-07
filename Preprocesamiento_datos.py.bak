@@ -13,7 +13,7 @@ tweets = df.Text #obtiene el texto de los tweet
 
 #preprocesamiento  de los tweets
 processed_tweets = []
-
+#re.sub("cadena a buscar", "con la que se reemplaza", cadena_leida)
 url = ('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|'
         '[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+')
 menciones = '@[\w\-]+'
@@ -24,8 +24,6 @@ caracter_individual_inicio= r'\^[a-zA-Z]\s+'
 varios_espacios= r'\s+'
 prefijo_b = r'^b\s+'
 numeros = '[0-9]+'
-
-#re.sub("cadena a buscar", "con la que se reemplaza", cadena_leida)
 
 for tweet in tweets:
     tweet_procesado = tweet.lower()  #Convertir a minúsculas
@@ -53,7 +51,7 @@ for tweet in tweets:
 tweets = processed_tweets
 df_temp = pd.DataFrame(columns=["text"])
 for tweet in tweets: df_temp.loc[len(df_temp)] = [tweet]
-df_temp.to_excel("C:/Users/LENOVO/OneDrive/TT_ViolenciaPolíticaGénero/data_clean.xlsx")
-df_temp.to_csv("C:/Users/LENOVO/OneDrive/TT_ViolenciaPolíticaGénero/data_clean.csv", sep=',', encoding="utf-8")
+df_temp.to_excel("C:/Users/LENOVO/OneDrive/TT_ViolenciaPolíticaGénero/data_clean2.xlsx")
+df_temp.to_csv("C:/Users/LENOVO/OneDrive/TT_ViolenciaPolíticaGénero/data_clean2.csv", sep=',', encoding="utf-8")
 print(df_temp.describe())
 
